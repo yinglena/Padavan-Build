@@ -21,8 +21,8 @@ env:
   build_dir: /opt/rt-n56u                                       # 源码目录
   work_dir: /opt/rt-n56u/trunk                                  # 工作目录
   custom_modify: true                                           # 修改文件
-  upload_cowtransfer: true                                      # 上传到奶牛快传
-  upload_wetransfer: true                                       # 上传到 WeTransfer
+  upload_cowtransfer: false                                      # 上传到奶牛快传
+  upload_wetransfer: false                                       # 上传到 WeTransfer
   src_git: https://github.com/hanwckf/rt-n56u.git               # 源码地址
   config_dir: /opt/rt-n56u/trunk/configs/templates              # 设备模板目录
   toolchain_dir: /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x  # 工具链目录
