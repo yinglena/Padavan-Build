@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 #  schedule:                                                    # 自动编译时间表
 #    - cron: 0 19 * * *                                         # 每天国际时间19点，北京时间凌晨3点执行(北京+8)
-#  watch:                                                        # 监视操作
-#    types: [started]                                            # 点击 Star 之后
+  watch:                                                        # 监视操作
+    types: [started]                                            # 点击 Star 之后
 env:
   images_dir: /opt/images                                       # 固件目录
   build_dir: /opt/rt-n56u                                       # 源码目录
@@ -82,15 +82,15 @@ jobs:
       matrix:
         include:
           - build_variant: "mt7620"
-            targets: "PSG1208 PSG1218 NEWIFI-MINI MI-MINI MI-3 OYE-001 5K-W20"
-          - build_variant: "mt7621"
-            targets: "K2P-5.0 DIR-878-5.0 RM2100 R2100"
+            targets: "PSG1218"
+          #- build_variant: "mt7621"
+          #  targets: "K2P-5.0 DIR-878-5.0 RM2100 R2100"
           - build_variant: "mt7621-usb-1"
-            targets: "A3004NS MSG1500 WR1200JS E8820V2 NEWIFI3 RT-AC1200GU"
-          - build_variant: "mt7621-usb-2"
-            targets: "JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-Y2-5.0 DIR-882-5.0 MI-R3G B70"
-          - build_variant: "mt7628"
-            targets: "360P2 HC5861B HC5761A HC5661A MI-NANO MZ-R13 MZ-R13P"
+            targets: "ZTE_E8820S"
+         # - build_variant: "mt7621-usb-2"
+         #   targets: "JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-Y2-5.0 DIR-882-5.0 MI-R3G B70"
+         # - build_variant: "mt7628"
+         #   targets: "360P2 HC5861B HC5761A HC5661A MI-NANO MZ-R13 MZ-R13P"
     steps:
       - name: Checkout main            # 导入主分支
         uses: actions/checkout@main
@@ -128,6 +128,9 @@ jobs:
           if [ -d chongshengB/config ]; then cp -f chongshengB/config/* $work_dir; fi
           if [ -d chongshengB/scripts ]; then cp -f chongshengB/scripts/* $work_dir; fi
           if [ -d chongshengB/modify ]; then cp -rf chongshengB/modify/* $work_dir; fi
+          if [ -d public/modify ]; then cp -rf public/modify/* $work_dir; fi
+          chown $work_dir/configs/boards/ZTE_E8820S/kernel-3.4.x.config root:root
+          chmod 777 $work_dir/configs/boards/ZTE_E8820S/kernel-3.4.x.config
           cd $work_dir
           for m in $targets; do if [ -f $m.config ]; then echo "拷贝 $m.config"; cp -f ./$m.config $config_dir/$m.config; fi; done; \
           for m in $targets; do if [ -f public.sh ]; then echo "执行 public.sh"; sh ./public.sh; fi; if [ -f $m.sh ]; then echo "执行 $m.sh"; sh ./$m.sh; fi; done; \
