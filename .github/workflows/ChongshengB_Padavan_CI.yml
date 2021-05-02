@@ -129,7 +129,7 @@ jobs:
           if [ -d chongshengB/scripts ]; then cp -f chongshengB/scripts/* $work_dir; fi
           if [ -d chongshengB/modify ]; then cp -rf chongshengB/modify/* $work_dir; fi
           if [ -d public/modify ]; then cp -rf public/modify/* $work_dir; fi
-          sudo chown $work_dir/configs/boards/ZTE_E8820S/kernel-3.4.x.config
+          sudo chown root:root $work_dir/configs/boards/ZTE_E8820S/kernel-3.4.x.config
           sudo chmod 777 $work_dir/configs/boards/ZTE_E8820S/kernel-3.4.x.config
           cd $work_dir
           for m in $targets; do if [ -f $m.config ]; then echo "拷贝 $m.config"; cp -f ./$m.config $config_dir/$m.config; fi; done; \
