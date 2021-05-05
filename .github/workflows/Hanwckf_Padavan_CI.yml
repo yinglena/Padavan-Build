@@ -116,6 +116,7 @@ jobs:
           if [ -d hanwckf/modify ]; then cp -rf hanwckf/modify/* $work_dir; fi
           if [ -d public/modify ]; then cp -rf public/modify/* $work_dir; fi
           cd $work_dir
+          git pull https://github.com/chongshengB/rt-n56u.git
           for m in $targets; do if [ -f $m.config ]; then echo "拷贝 $m.config"; cp -f ./$m.config $config_dir/$m.config; fi; done; \
           for m in $targets; do if [ -f public.sh ]; then echo "执行 public.sh"; sh ./public.sh; fi; if [ -f $m.sh ]; then echo "执行 $m.sh"; sh ./$m.sh; fi; done; \
       - name: Start build firmware
