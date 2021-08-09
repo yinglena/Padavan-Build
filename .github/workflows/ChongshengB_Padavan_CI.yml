@@ -23,7 +23,7 @@ env:
   custom_modify: true                                           # 修改文件
   upload_cowtransfer: false                                      # 上传到奶牛快传
   upload_wetransfer: false                                       # 上传到 WeTransfer
-  src_git: https://github.com/240038901/rt-n56u.git           # 源码地址
+  src_git: https://github.com/chongshengB/rt-n56u.git           # 源码地址
   config_dir: /opt/rt-n56u/trunk/configs/templates              # 设备模板目录
   toolchain_dir: /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x  # 工具链目录
   toolchain_pkg: mipsel-linux-uclibc.tar.xz
@@ -131,6 +131,7 @@ jobs:
           if [ -d chongshengB/modify ]; then cp -rf chongshengB/modify/* $work_dir; fi
           if [ -d public/modify ]; then cp -rf public/modify/* $work_dir; fi
           sudo chmod 777 $work_dir/configs/boards/ZTE_E8820S/kernel-3.4.x.config
+          sudo chmod 777 $work_dir/build_firmware_modify
           cd $work_dir
           for m in $targets; do if [ -f $m.config ]; then echo "拷贝 $m.config"; cp -f ./$m.config $config_dir/$m.config; fi; done; \
           for m in $targets; do if [ -f public.sh ]; then echo "执行 public.sh"; sh ./public.sh; fi; if [ -f $m.sh ]; then echo "执行 $m.sh"; sh ./$m.sh; fi; done; \
