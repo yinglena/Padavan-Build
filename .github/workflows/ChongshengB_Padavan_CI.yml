@@ -23,7 +23,7 @@ env:
   custom_modify: true                                           # 修改文件
   upload_cowtransfer: false                                      # 上传到奶牛快传
   upload_wetransfer: false                                       # 上传到 WeTransfer
-  src_git: https://github.com/chongshengB/rt-n56u.git           # 源码地址
+  src_git: https://github.com/240038901/rt-n56u.git           # 源码地址
   config_dir: /opt/rt-n56u/trunk/configs/templates              # 设备模板目录
   toolchain_dir: /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x  # 工具链目录
   toolchain_pkg: mipsel-linux-uclibc.tar.xz
