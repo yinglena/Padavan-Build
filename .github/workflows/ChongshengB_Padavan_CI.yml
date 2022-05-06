@@ -27,7 +27,7 @@ env:
   config_dir: /opt/rt-n56u/trunk/configs/templates              # 设备模板目录
   toolchain_dir: /opt/rt-n56u/toolchain-mipsel/toolchain-3.4.x  # 工具链目录
   toolchain_pkg: mipsel-linux-uclibc.tar.xz
-  toolchain_url: https://github.com/TurBoTse/padavan-toolchain/releases/download/v1.0
+  toolchain_url: https://github.com/TurBoTse/padavan-toolchain/releases/download/3.4_kernal/
   ENABLED_CFG: |
     CONFIG_FIRMWARE_INCLUDE_LANG_CN
     CONFIG_FIRMWARE_ENABLE_IPV6
