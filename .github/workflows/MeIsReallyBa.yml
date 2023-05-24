@@ -129,9 +129,9 @@ jobs:
           if [ -d chongshengB/config ]; then cp -f chongshengB/config/* $work_dir; fi
           if [ -d chongshengB/scripts ]; then cp -f chongshengB/scripts/* $work_dir; fi
           if [ -d chongshengB/modify ]; then cp -rf chongshengB/modify/* $work_dir; fi
-          if [ -d keke4.4/modify ]; then cp -rf keke4.4/modify/* $work_dir; fi
-          sudo chmod 777 $work_dir/configs/boards/ZTE-E8820S/kernel-4.4.x.config
-          sudo chmod 777 $work_dir/build_firmware_modify
+          if [ -d keke4.45/modify ]; then cp -rf keke4.4/modify/* $work_dir; fi
+          # sudo chmod 777 $work_dir/configs/boards/ZTE-E8820S/kernel-4.4.x.config
+          # sudo chmod 777 $work_dir/build_firmware_modify
           cd $work_dir
           for m in $targets; do if [ -f $m.config ]; then echo "拷贝 $m.config"; cp -f ./$m.config $config_dir/$m.config; fi; done; \
           for m in $targets; do if [ -f public.sh ]; then echo "执行 public.sh"; sh ./public.sh; fi; if [ -f $m.sh ]; then echo "执行 $m.sh"; sh ./$m.sh; fi; done; \
