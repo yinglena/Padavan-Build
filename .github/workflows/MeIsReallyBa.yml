@@ -104,10 +104,10 @@ jobs:
           git clone --depth=1 $src_git $build_dir
       - name: Prepare toolchain
         run: |                         # 下载预编译的构建工具链
-          # sh dl_toolchain.sh
-          mkdir -p $toolchain_dir && mkdir -p $images_dir
-          curl -LO ${toolchain_url}/${toolchain_pkg}
-          tar -xf $toolchain_pkg -C $toolchain_dir
+          sh dl_toolchain.sh
+          # mkdir -p $toolchain_dir && mkdir -p $images_dir
+          # curl -LO ${toolchain_url}/${toolchain_pkg}
+          # tar -xf $toolchain_pkg -C $toolchain_dir
       - name: Modify configs
         run: |                         # 修改配置文件
           cd $config_dir
