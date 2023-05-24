@@ -104,6 +104,7 @@ jobs:
           git clone --depth=1 $src_git $build_dir
       - name: Prepare toolchain
         run: |                         # 下载预编译的构建工具链
+          cd padavan-4.4/toolchain-mipsel
           sh dl_toolchain.sh
           # mkdir -p $toolchain_dir && mkdir -p $images_dir
           # curl -LO ${toolchain_url}/${toolchain_pkg}
